@@ -9,10 +9,11 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
+        temp = head
         stack = []
-        while head:
-            stack.append(head)
-            head = head.next
+        while temp!=None:
+            stack.append(temp)
+            temp = temp.next
         if not stack:
             return None
         new_head = stack.pop()
