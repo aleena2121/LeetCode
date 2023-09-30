@@ -4,19 +4,16 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        if len(nums) < 3:
-            return False
-
-        stack = []
-        s3 = float("-inf")
-
-        for i in range(len(nums) - 1, -1, -1):
-            if nums[i] < s3:
+        stack=[]
+        cmin=nums[0]
+        for n in nums[1:]:
+            while stack and n >= stack[-1][0]:
+                stack.pop()
+            if stack  and n>stack[-1][-1]:
                 return True
+            stack.append([n,cmin])
+            cmin=min(cmin,n)
+        return False 
 
-            while stack and nums[i] > stack[-1]:
-                s3 = stack.pop()
 
-            stack.append(nums[i])
 
-        return False
