@@ -13,11 +13,11 @@ class Solution(object):
         stack = []
         
         while temp:
-            stack.append(temp.val)  # Append the values, not the nodes
+            stack.append(temp.val)  
             temp = temp.next
         
         while head:
-            if head.val != stack.pop():  # Compare the values with the top of the stack
+            if head.val != stack.pop(): 
                 return False
             head = head.next
         
