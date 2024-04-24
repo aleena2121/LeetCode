@@ -16,3 +16,10 @@ class Solution(object):
             a1 = a2
             a2 = temp1
         return max(r2,a2)
+
+        def helper(nums):
+            
+            for n in range(0,len(nums)-1):
+                temp = max(nums[n]+r1,r2)
+                r1 = r2
+                r2 = temp
