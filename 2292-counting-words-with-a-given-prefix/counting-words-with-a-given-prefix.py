@@ -7,8 +7,6 @@ class Solution(object):
         """
         res = 0
         for i in range(len(words)):
-            if pref in words[i]:
-                word = words[i]
-                if pref == word[:len(pref)]:
-                    res+=1
+            if words[i].startswith(pref):
+                res+=1
         return res
