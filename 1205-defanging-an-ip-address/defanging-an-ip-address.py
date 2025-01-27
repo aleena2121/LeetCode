@@ -9,8 +9,6 @@ class Solution(object):
             if i.isnumeric():
                 res += i
             else:
-                res += "["
-                res += i
-                res += "]"
+                res += "[.]"
         
         return res
