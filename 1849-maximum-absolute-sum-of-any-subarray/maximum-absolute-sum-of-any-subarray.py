@@ -8,8 +8,6 @@ class Solution:
         for i in range(1, len(nums)):
             maxEnding = max(maxEnding + nums[i], nums[i])
             res1 = max(res1, maxEnding)
-
-        for i in range(1, len(nums)):
             minEnding = min(minEnding + nums[i], nums[i])
             res2 = min(res2, minEnding)
         
