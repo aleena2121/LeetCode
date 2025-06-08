@@ -1,10 +1,5 @@
-import math
-class Solution(object):
-    def productExceptSelf(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[int]
-        """
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
         n = len(nums)
         
         prefix = [1] * n
