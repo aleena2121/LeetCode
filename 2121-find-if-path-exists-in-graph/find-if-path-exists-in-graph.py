@@ -1,25 +1,25 @@
+from collections import defaultdict
+
 class Solution:
     def validPath(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
         if source == destination:
             return True
-
         graph = defaultdict(list)
-
         for u,v in edges:
             graph[u].append(v)
             graph[v].append(u)
 
-        seen = set()
-        seen.add(source)
+        visited = set()
+        stack = [source]
+        visited.add(source)
 
-        def dfs(i):
-            if i == destination:
-                return True
-            
-            for node in graph[i]:
-                if node not in seen:
-                    seen.add(node)
-                    if dfs(node):
-                        return True
-            return False
-        return dfs(source)
+        while stack:
+            node = stack.pop()
+            for neighbour in graph[node]:
+                if neighbour == destination:
+                    return True
+                if neighbour not in visited:
+                    stack.append(neighbour)
+                    visited.add(neighbour)
+        
+        return False
