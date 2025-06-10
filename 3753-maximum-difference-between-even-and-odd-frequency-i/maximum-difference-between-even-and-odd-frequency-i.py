@@ -9,4 +9,4 @@ class Solution:
                 even.append(i)
             else:
                 odd.append(i)
-        return max((max(odd)-min(even)),(min(odd)-max(even)))
+        return max(odd)-min(even)
