@@ -1,9 +1,5 @@
-class Solution(object):
-    def smallestNumber(self, n):
-        """
-        :type n: int
-        :rtype: int
-        """
+class Solution:
+    def smallestNumber(self, n: int) -> int:
         i = 0
         if n == 1:
             return 1
