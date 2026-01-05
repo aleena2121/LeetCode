@@ -5,12 +5,11 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        res = []
-        for i in range (0,len(nums)):
-            for j in range (i+1,len(nums)):
-                if nums[i]+nums[j] == target:
-                    res.append(i)
-                    res.append(j)
-                    
-        return res
-                    
+        hashmap = {}
+        for i in range(len(nums)):
+            hashmap[nums[i]] = i
+        for i in range(len(nums)):
+            comp = target - nums[i]
+            if comp in hashmap and hashmap[comp] != i:
+                return [i, hashmap[comp]]
+        return []
