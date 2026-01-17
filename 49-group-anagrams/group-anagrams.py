@@ -1,17 +1,10 @@
-class Solution(object):
-    def groupAnagrams(self, words):
-        """
-        :type strs: List[str]
-        :rtype: List[List[str]]
-        """
-        anagram_groups = {}
+from collections import defaultdict
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        res = defaultdict(list)
+
+        for i in strs:
+            res["".join(sorted(i))].append(i)
         
-        for word in words:
-            key = "".join(sorted(word))
-            
-            if key not in anagram_groups:
-                anagram_groups[key] = [word]
-            else:
-                anagram_groups[key].append(word)
-        
-        return anagram_groups.values()
+        return [value for value in res.values()]
+                
