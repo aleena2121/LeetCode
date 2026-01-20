@@ -10,15 +10,19 @@ class Solution:
         less = lesser
         great = greater
 
-        while head != None:
-            if head.val < x:
-                less.next = ListNode(head.val)
+        curr = head
+        while curr:
+            next_node = curr.next      
+            curr.next = None           
+
+            if curr.val < x:
+                less.next = curr
                 less = less.next
-            elif head.val >= x:
-                great.next = ListNode(head.val)
+            else:
+                great.next = curr
                 great = great.next
-            head = head.next
-        
+
+            curr = next_node
+
         less.next = greater.next
         return lesser.next
-
