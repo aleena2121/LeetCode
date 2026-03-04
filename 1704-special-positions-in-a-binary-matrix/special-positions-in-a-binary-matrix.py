@@ -1,12 +1,17 @@
 class Solution:
-    def numSpecial(self, mat):
-        def get_column_sum(col_idx):
-            return sum(row[col_idx] for row in mat)
+    def numSpecial(self, mat: List[List[int]]) -> int:
+        row = [0]*len(mat)
+        col = [0]*len(mat[0])
 
-        special = 0
-        for row in mat:
-            if sum(row) == 1:
-                col_idx = row.index(1)
-                special += get_column_sum(col_idx) == 1
-
-        return special
+        for i in range(len(mat)):
+            for j in range(len(mat[0])):
+                if mat[i][j] == 1:
+                    row[i] += 1
+                    col[j] += 1
+        ans = 0
+        for i in range(len(mat)):
+            for j in range(len(mat[0])):
+                if mat[i][j] == 1:
+                    if row[i] == col[j] == 1:
+                        ans += 1
+        return ans
